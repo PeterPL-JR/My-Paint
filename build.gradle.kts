@@ -13,7 +13,7 @@ repositories {
 
 javafx {
     version = "21"
-    modules("javafx.controls")
+    modules("javafx.controls", "javafx.swing")
 }
 
 application {

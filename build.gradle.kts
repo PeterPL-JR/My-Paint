@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("org.json:json:20250517")
+}
+
 javafx {
     version = "21"
     modules("javafx.controls", "javafx.swing")

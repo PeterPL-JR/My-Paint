@@ -1,2 +1,27 @@
 {
+    "menu": {
+        "file": {
+            "_": "File",
+            "new": "New...",
+            "open": "Open...",
+            "save": "Save",
+            "save_as": "Save as...",
+            "save_all": "Save all",
+            "close": "Close",
+            "exit": "Exit"
+        },
+        "edit": {
+            "_": "Edit",
+            "undo": "Undo",
+            "redo": "Redo",
+            "cut": "Cut",
+            "copy": "Copy",
+            "paste": "Paste"
+        },
+        "view": {
+            "_": "View",
+            "zoom_in": "Zoom in",
+            "zoom_out": "Zoom out"
+        }
+    }
 }

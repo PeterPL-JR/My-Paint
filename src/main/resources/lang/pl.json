@@ -1,2 +1,27 @@
 {
+    "menu": {
+        "file": {
+            "_": "Plik",
+            "new": "Nowy...",
+            "open": "Otwórz...",
+            "save": "Zapisz",
+            "save_as": "Zapisz jako...",
+            "save_all": "Zapisz wszystko",
+            "close": "Zamknij",
+            "exit": "Wyjście"
+        },
+        "edit": {
+            "_": "Edytuj",
+            "undo": "Cofnij",
+            "redo": "Ponów",
+            "cut": "Wytnij",
+            "copy": "Kopiuj",
+            "paste": "Wklej"
+        },
+        "view": {
+            "_": "Widok",
+            "zoom_in": "Powiększ",
+            "zoom_out": "Zmniejsz"
+        }
+    }
 }

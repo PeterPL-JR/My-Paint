@@ -1,6 +1,7 @@
 package com.peterpl.mypaint.lang;
 
 import com.peterpl.mypaint.file.*;
+import com.peterpl.mypaint.utils.*;
 
 import java.util.*;
 
@@ -29,5 +30,9 @@ public class LanguageManager {
 
     public static String translate(String ... keys) {
         return activeLanguage.translate(keys);
+    }
+
+    public static String translate(IDObject obj) {
+        return translate(obj.getID());
     }
 }

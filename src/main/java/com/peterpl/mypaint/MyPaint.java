@@ -57,7 +57,7 @@ public class MyPaint extends Application {
         scene = new Scene(container);
 
         stage.setTitle(TITLE);
-        stage.getIcons().add(ResourceManager.loadImage("icon"));
+        stage.getIcons().add(ResourceManager.loadImage("icon", 32, 32));
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();

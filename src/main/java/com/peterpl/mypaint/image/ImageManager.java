@@ -25,6 +25,9 @@ public class ImageManager {
     }
 
     public static BufferedImage scale(BufferedImage img, int width, int height) {
+        if(img == null) {
+            return null;
+        }
         Image buffer = img.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
         BufferedImage scaled = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 

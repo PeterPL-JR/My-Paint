@@ -10,11 +10,13 @@ public class MMenuItem extends MenuItem {
 
     private static final int ICON_SIZE = 24;
 
-    public MMenuItem(String name, String parentName) {
+    public MMenuItem(String name, String parentName, Runnable action) {
         super(LanguageManager.translate("menu", parentName, name));
         this.name = name;
         this.parentName = parentName;
         setIcon();
+
+        setOnAction(event -> action.run());
     }
 
     private void setIcon() {

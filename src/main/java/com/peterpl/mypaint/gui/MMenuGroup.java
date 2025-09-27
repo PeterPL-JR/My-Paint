@@ -11,8 +11,8 @@ public class MMenuGroup extends Menu {
         this.name = name;
     }
 
-    public MMenuGroup addItem(String name) {
-        MMenuItem item = new MMenuItem(name, this.name);
+    public MMenuGroup addItem(String name, Runnable action) {
+        MMenuItem item = new MMenuItem(name, this.name, action);
         getItems().add(item);
         return this;
     }

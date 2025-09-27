@@ -26,26 +26,26 @@ public class MyPaint extends Application {
         MainMenu menu = new MainMenu();
 
         menu.addGroup("file")
-                .addItem("new")
-                .addItem("open")
+                .addItem("new", () -> {})
+                .addItem("open", () -> {})
                 .addSeparator()
-                .addItem("save")
-                .addItem("save_as")
-                .addItem("save_all")
+                .addItem("save", () -> {})
+                .addItem("save_as", () -> {})
+                .addItem("save_all", () -> {})
                 .addSeparator()
-                .addItem("close")
+                .addItem("close", () -> {})
                 .addSeparator()
-                .addItem("exit");
+                .addItem("exit", this::exit);
         menu.addGroup("edit")
-                .addItem("undo")
-                .addItem("redo")
+                .addItem("undo", () -> {})
+                .addItem("redo", () -> {})
                 .addSeparator()
-                .addItem("cut")
-                .addItem("copy")
-                .addItem("paste");
+                .addItem("cut", () -> {})
+                .addItem("copy", () -> {})
+                .addItem("paste", () -> {});
         menu.addGroup("view")
-                .addItem("zoom_in")
-                .addItem("zoom_out");
+                .addItem("zoom_in", () -> {})
+                .addItem("zoom_out", () -> {});
 
         container.setTop(menu);
     }
@@ -61,6 +61,10 @@ public class MyPaint extends Application {
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void exit() {
+        Platform.exit();
     }
 
     public static void main(String[] args) {

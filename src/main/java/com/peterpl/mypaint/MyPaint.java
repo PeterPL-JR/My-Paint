@@ -1,6 +1,7 @@
 package com.peterpl.mypaint;
 
 import com.peterpl.mypaint.file.*;
+import com.peterpl.mypaint.lang.*;
 import javafx.application.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
@@ -13,6 +14,7 @@ public class MyPaint extends Application {
     private StackPane container;
 
     private void initContainer() {
+        LanguageManager.init();
     }
 
     @Override

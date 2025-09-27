@@ -26,12 +26,13 @@ public class ResourceManager {
     private static void loadJSON(JSONObject obj, String previousKey, HashMap<String, String> map) {
         for(String key : obj.keySet()) {
             Object value = obj.get(key);
+            String newPreviousKey = previousKey != null ? previousKey + "." : "";
             if(value instanceof String string) {
-                String newKey = key.equals("_") ? previousKey : previousKey + "." + key;
+                String newKey = key.equals("_") ? previousKey : newPreviousKey + key;
                 map.put(newKey, string);
             } else {
                 JSONObject newObj = (JSONObject) value;
-                String newKey = previousKey != null ? previousKey + "." + key : key;
+                String newKey = newPreviousKey + key;
                 loadJSON(newObj, newKey, map);
             }
         }

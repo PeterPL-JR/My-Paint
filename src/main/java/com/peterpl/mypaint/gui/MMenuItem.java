@@ -1,10 +1,12 @@
 package com.peterpl.mypaint.gui;
 
 import com.peterpl.mypaint.file.*;
+import com.peterpl.mypaint.input.*;
 import com.peterpl.mypaint.lang.*;
 import com.peterpl.mypaint.utils.*;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
+import javafx.scene.input.*;
 
 public class MMenuItem extends MenuItem implements IDObject {
     private final String name;
@@ -19,6 +21,11 @@ public class MMenuItem extends MenuItem implements IDObject {
         setText(LanguageManager.translate(this));
         setIcon();
         setOnAction(event -> action.run());
+
+        KeyCombination keybind = KeyboardManager.getKeybind(getID());
+        if(keybind != null) {
+            setAccelerator(keybind);
+        }
     }
 
     private void setIcon() {

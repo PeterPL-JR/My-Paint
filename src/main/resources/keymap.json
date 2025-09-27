@@ -1,0 +1,23 @@
+{
+    "menu": {
+        "file": {
+            "new": "Ctrl + N",
+            "open": "Ctrl + O",
+            "save": "Ctrl + S",
+            "save_as": "Ctrl + Shift + S",
+            "save_all": "Ctrl + Alt + S",
+            "close": "Ctrl + W"
+        },
+        "edit": {
+            "undo": "Ctrl + Z",
+            "redo": "Ctrl + Y",
+            "cut": "Ctrl + X",
+            "copy": "Ctrl + C",
+            "paste": "Ctrl + V"
+        },
+        "view": {
+            "zoom_in": "Ctrl + Plus",
+            "zoom_out": "Ctrl + Minus"
+        }
+    }
+}

@@ -2,12 +2,10 @@ package com.peterpl.mypaint;
 
 import com.peterpl.mypaint.file.*;
 import com.peterpl.mypaint.gui.*;
+import com.peterpl.mypaint.input.*;
 import com.peterpl.mypaint.lang.*;
 import javafx.application.*;
 import javafx.scene.*;
-import javafx.scene.control.*;
-import javafx.scene.image.*;
-import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
@@ -19,6 +17,7 @@ public class MyPaint extends Application {
 
     private void initContainer() {
         LanguageManager.init();
+        KeyboardManager.init();
         initMenu();
     }
 

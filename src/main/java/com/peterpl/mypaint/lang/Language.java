@@ -6,7 +6,8 @@ import java.util.*;
 
 public record Language(String id, String name, HashMap<String, String> dictionary) {
     public String translate(String key) {
-        return dictionary.get(key);
+        String word = dictionary.get(key);
+        return word != null ? word : "<" + key + ">";
     }
 
     public String translate(String... keys) {
@@ -17,6 +18,6 @@ public record Language(String id, String name, HashMap<String, String> dictionar
                 key.append('.');
             }
         }
-        return dictionary.get(key.toString());
+        return translate(key.toString());
     }
 }

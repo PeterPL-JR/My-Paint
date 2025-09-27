@@ -16,7 +16,11 @@ public class LanguageManager {
             HashMap<String, String> dictionary = ResourceManager.loadJSON("lang/" + id);
             LANGUAGES.put(id, new Language(id, name, dictionary));
         }
-        activeLanguage = LANGUAGES.get("en");
+        setLanguage("en");
+    }
+
+    public static void setLanguage(String id) {
+        activeLanguage = LANGUAGES.get(id);
     }
 
     public static String translate(String key) {

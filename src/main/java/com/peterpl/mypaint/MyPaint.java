@@ -54,6 +54,7 @@ public class MyPaint extends Application {
         container = new BorderPane();
         initContainer();
         scene = new Scene(container);
+        scene.getStylesheets().add(MyPaint.class.getResource("/style.css").toExternalForm());
 
         stage.setTitle(TITLE);
         stage.getIcons().add(ResourceManager.loadImage("icon", 32, 32));

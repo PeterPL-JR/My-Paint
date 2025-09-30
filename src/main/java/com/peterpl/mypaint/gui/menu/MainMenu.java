@@ -1,4 +1,4 @@
-package com.peterpl.mypaint.gui;
+package com.peterpl.mypaint.gui.menu;
 
 import javafx.scene.control.*;
 

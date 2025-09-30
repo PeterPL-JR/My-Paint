@@ -1,7 +1,8 @@
 package com.peterpl.mypaint;
 
 import com.peterpl.mypaint.file.*;
-import com.peterpl.mypaint.gui.*;
+import com.peterpl.mypaint.gui.canvas.*;
+import com.peterpl.mypaint.gui.menu.*;
 import com.peterpl.mypaint.input.*;
 import com.peterpl.mypaint.lang.*;
 import javafx.application.*;
@@ -15,10 +16,15 @@ public class MyPaint extends Application {
     private Scene scene;
     private BorderPane container;
 
+    private PaintCanvas canvas;
+    private MScrollPanel scrollPanel;
+
     private void initContainer() {
         LanguageManager.init();
         KeyboardManager.init();
+
         initMenu();
+        initCanvas();
     }
 
     private void initMenu() {
@@ -47,6 +53,13 @@ public class MyPaint extends Application {
                 .addItem("zoom_out", () -> {});
 
         container.setTop(menu);
+    }
+
+    private void initCanvas() {
+        canvas = new PaintCanvas();
+
+        scrollPanel = new MScrollPanel(canvas);
+        container.setCenter(scrollPanel);
     }
 
     @Override

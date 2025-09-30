@@ -6,11 +6,13 @@ public class CanvasContainer extends StackPane {
     private PaintCanvas canvas;
     private MScrollPanel panel;
 
+    static final String BG_COLOUR = "#cfcfcf";
+
     public CanvasContainer(PaintCanvas canvas, MScrollPanel panel) {
         this.canvas = canvas;
         this.panel = panel;
-        setStyle("-fx-background-color: #cfcfcf");
         getChildren().add(canvas);
+        setStyle("-fx-background-color: " + BG_COLOUR + ";");
 
         resize();
     }

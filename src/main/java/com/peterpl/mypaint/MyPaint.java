@@ -2,6 +2,7 @@ package com.peterpl.mypaint;
 
 import com.peterpl.mypaint.file.*;
 import com.peterpl.mypaint.gui.canvas.*;
+import com.peterpl.mypaint.gui.footer.*;
 import com.peterpl.mypaint.gui.menu.*;
 import com.peterpl.mypaint.input.*;
 import com.peterpl.mypaint.lang.*;
@@ -25,6 +26,7 @@ public class MyPaint extends Application {
 
         initMenu();
         initCanvas();
+        initFooter();
     }
 
     private void initMenu() {
@@ -60,6 +62,11 @@ public class MyPaint extends Application {
 
         scrollPanel = new MScrollPanel(canvas);
         container.setCenter(scrollPanel);
+    }
+
+    private void initFooter() {
+        FooterMenu footer = new FooterMenu();
+        container.setBottom(footer);
     }
 
     @Override

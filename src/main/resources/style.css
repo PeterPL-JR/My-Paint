@@ -2,3 +2,12 @@
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
 }
+
+.percent {
+    -fx-padding: 0 10 0 10;
+    -fx-font-size: 15px;
+}
+
+.slider {
+    -fx-padding: 0 3 0 3;
+}

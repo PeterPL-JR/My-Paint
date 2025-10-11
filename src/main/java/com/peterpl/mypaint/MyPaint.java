@@ -3,6 +3,7 @@ package com.peterpl.mypaint;
 import com.peterpl.mypaint.file.*;
 import com.peterpl.mypaint.gui.canvas.*;
 import com.peterpl.mypaint.gui.footer.*;
+import com.peterpl.mypaint.gui.footer.zoom.*;
 import com.peterpl.mypaint.gui.menu.*;
 import com.peterpl.mypaint.input.*;
 import com.peterpl.mypaint.lang.*;
@@ -66,6 +67,14 @@ public class MyPaint extends Application {
 
     private void initFooter() {
         FooterMenu footer = new FooterMenu();
+
+        ZoomSlider slider = new ZoomSlider();
+        PercentLabel percent = new PercentLabel();
+
+        slider.setListener(percent::setPercent);
+
+        footer.add(percent, slider);
+
         container.setBottom(footer);
     }
 

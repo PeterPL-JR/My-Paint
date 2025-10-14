@@ -11,3 +11,7 @@
 .slider {
     -fx-padding: 0 3 0 3;
 }
+
+.icon-button:hover {
+    -fx-background-color: #0096C9ff;
+}

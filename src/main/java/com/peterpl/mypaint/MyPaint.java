@@ -1,6 +1,7 @@
 package com.peterpl.mypaint;
 
 import com.peterpl.mypaint.file.*;
+import com.peterpl.mypaint.gui.*;
 import com.peterpl.mypaint.gui.canvas.*;
 import com.peterpl.mypaint.gui.footer.*;
 import com.peterpl.mypaint.gui.footer.zoom.*;
@@ -67,23 +68,36 @@ public class MyPaint extends Application {
 
     private void initFooter() {
         FooterMenu footer = new FooterMenu();
+        MBoxPanel zoomMenu = new MBoxPanel();
 
         ZoomSlider slider = new ZoomSlider();
-        PercentLabel percent = new PercentLabel();
+        IconButton plus = new IconButton("menu/view/zoom_in");
+        IconButton minus = new IconButton("menu/view/zoom_out");
+        PercentLabel percent = new PercentLabel(zoomMenu, slider);
+
+        plus.setListener(() -> {
+            slider.plusStep();
+            percent.closeInput();
+        });
+        minus.setListener(() -> {
+            slider.minusStep();
+            percent.closeInput();
+        });
 
         slider.setListener(percent::setPercent);
 
-        footer.add(percent, slider);
+        zoomMenu.add(percent, minus, slider, plus);
 
+        footer.add(zoomMenu);
         container.setBottom(footer);
     }
 
     @Override
     public void start(Stage stage) {
         container = new BorderPane();
-        initContainer();
         scene = new Scene(container);
         scene.getStylesheets().add(MyPaint.class.getResource("/style.css").toExternalForm());
+        initContainer();
 
         stage.setTitle(TITLE);
         stage.getIcons().add(ResourceManager.loadImage("icon", 32, 32));

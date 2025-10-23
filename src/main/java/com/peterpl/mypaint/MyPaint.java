@@ -26,9 +26,9 @@ public class MyPaint extends Application {
         LanguageManager.init();
         KeyboardManager.init();
 
-        initMenu();
         initCanvas();
         initFooter();
+        initMenu();
     }
 
     private void initMenu() {
@@ -53,8 +53,8 @@ public class MyPaint extends Application {
                 .addItem("copy", () -> {})
                 .addItem("paste", () -> {});
         menu.addGroup("view")
-                .addItem("zoom_in", () -> {})
-                .addItem("zoom_out", () -> {});
+                .addItem("zoom_in", zoomMenu::zoomIn)
+                .addItem("zoom_out", zoomMenu::zoomOut);
 
         container.setTop(menu);
     }

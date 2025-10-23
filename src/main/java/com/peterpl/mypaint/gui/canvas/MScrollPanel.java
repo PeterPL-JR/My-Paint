@@ -17,6 +17,8 @@ public class MScrollPanel extends ScrollPane {
     private double lastY = -1;
     private boolean dragging = false;
 
+    private int canvasMouseX, canvasMouseY;
+
     public MScrollPanel(PaintCanvas canvas) {
         this.canvas = canvas;
         container = new CanvasContainer(canvas, this);
@@ -56,6 +58,14 @@ public class MScrollPanel extends ScrollPane {
         viewportBoundsProperty().addListener(listener);
     }
 
+    public int getCanvasMouseX() {
+        return canvasMouseX;
+    }
+
+    public int getCanvasMouseY() {
+        return canvasMouseY;
+    }
+
     private void initSizeListener() {
         widthProperty().addListener((obs, oldVal, newVal) -> {
             double v = getVvalue();
@@ -72,6 +82,8 @@ public class MScrollPanel extends ScrollPane {
         container.setOnMouseReleased(this::onMouseReleased);
 
         container.setOnMouseDragged(this::onMouseDragged);
+
+        setOnMouseMoved(this::onMouseMoved);
     }
 
     private void onMousePressed(MouseEvent e) {
@@ -110,5 +122,19 @@ public class MScrollPanel extends ScrollPane {
             lastX = e.getSceneX();
             lastY = e.getSceneY();
         }
+    }
+
+    private void onMouseMoved(MouseEvent e) {
+        double x = e.getX();
+        double y = e.getY();
+
+        Bounds canvasPosition = canvas.localToScene(canvas.getBoundsInLocal());
+        Bounds scrollPosition = localToScene(getBoundsInLocal());
+
+        double offsetX = canvasPosition.getMinX() - scrollPosition.getMinX();
+        double offsetY = canvasPosition.getMinY() - scrollPosition.getMinY();
+
+        canvasMouseX = (int) (x - offsetX);
+        canvasMouseY = (int) (y - offsetY);
     }
 }

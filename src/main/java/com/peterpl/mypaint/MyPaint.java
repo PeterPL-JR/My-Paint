@@ -1,7 +1,6 @@
 package com.peterpl.mypaint;
 
 import com.peterpl.mypaint.file.*;
-import com.peterpl.mypaint.gui.*;
 import com.peterpl.mypaint.gui.canvas.*;
 import com.peterpl.mypaint.gui.footer.*;
 import com.peterpl.mypaint.gui.footer.zoom.*;
@@ -21,6 +20,7 @@ public class MyPaint extends Application {
 
     private PaintCanvas canvas;
     private MScrollPanel scrollPanel;
+    private ZoomMenu zoomMenu;
 
     private void initContainer() {
         LanguageManager.init();
@@ -68,25 +68,7 @@ public class MyPaint extends Application {
 
     private void initFooter() {
         FooterMenu footer = new FooterMenu();
-        MBoxPanel zoomMenu = new MBoxPanel();
-
-        ZoomSlider slider = new ZoomSlider();
-        IconButton plus = new IconButton("menu/view/zoom_in");
-        IconButton minus = new IconButton("menu/view/zoom_out");
-        PercentLabel percent = new PercentLabel(zoomMenu, slider);
-
-        plus.setListener(() -> {
-            slider.plusStep();
-            percent.closeInput();
-        });
-        minus.setListener(() -> {
-            slider.minusStep();
-            percent.closeInput();
-        });
-
-        slider.setListener(percent::setPercent);
-
-        zoomMenu.add(percent, minus, slider, plus);
+        zoomMenu = new ZoomMenu();
 
         footer.add(zoomMenu);
         container.setBottom(footer);

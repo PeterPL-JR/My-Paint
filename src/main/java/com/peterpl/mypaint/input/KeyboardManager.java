@@ -1,6 +1,7 @@
 package com.peterpl.mypaint.input;
 
 import com.peterpl.mypaint.file.*;
+import javafx.scene.*;
 import javafx.scene.input.*;
 
 import java.util.*;
@@ -52,5 +53,9 @@ public class KeyboardManager {
 
     public static KeyCombination getKeybind(String id) {
         return KEYMAP.get(id);
+    }
+
+    public static void addGeneralKeybind(Scene scene, KeyCodeCombination keybind, Runnable action) {
+        scene.getAccelerators().put(keybind, action);
     }
 }

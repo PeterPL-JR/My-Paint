@@ -9,6 +9,7 @@ import com.peterpl.mypaint.input.*;
 import com.peterpl.mypaint.lang.*;
 import javafx.application.*;
 import javafx.scene.*;
+import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
@@ -55,6 +56,8 @@ public class MyPaint extends Application {
         menu.addGroup("view")
                 .addItem("zoom_in", zoomMenu::zoomIn)
                 .addItem("zoom_out", zoomMenu::zoomOut);
+
+        KeyboardManager.addGeneralKeybind(scene, new KeyCodeCombination(KeyCode.EQUALS, KeyCombination.CONTROL_DOWN), zoomMenu::zoomIn);
 
         container.setTop(menu);
     }

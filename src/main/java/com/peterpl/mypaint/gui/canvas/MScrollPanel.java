@@ -88,7 +88,13 @@ public class MScrollPanel extends ScrollPane {
 
         container.setOnMouseDragged(this::onMouseDragged);
 
-        setOnMouseMoved(this::onMouseMoved);
+        setOnMouseMoved(this::updateMousePosition);
+
+        addEventFilter(MouseEvent.MOUSE_DRAGGED, e -> {
+            if(!dragging) {
+                updateMousePosition(e);
+            }
+        });
     }
 
     private void onMousePressed(MouseEvent e) {
@@ -129,7 +135,7 @@ public class MScrollPanel extends ScrollPane {
         }
     }
 
-    private void onMouseMoved(MouseEvent e) {
+    private void updateMousePosition(MouseEvent e) {
         double x = e.getX();
         double y = e.getY();
 

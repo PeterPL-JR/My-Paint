@@ -2,6 +2,7 @@ package com.peterpl.mypaint.gui.footer.zoom;
 
 import com.peterpl.mypaint.gui.*;
 import com.peterpl.mypaint.gui.canvas.*;
+import javafx.scene.input.*;
 
 public class ZoomMenu extends MBoxPanel {
     private final ZoomSlider slider;
@@ -23,6 +24,8 @@ public class ZoomMenu extends MBoxPanel {
 
         slider.setListener(this::changeZoom);
 
+        canvasPanel.addEventFilter(ScrollEvent.SCROLL, this::onCanvasScroll);
+
         add(percentLabel, minus, slider, plus);
     }
 
@@ -39,5 +42,23 @@ public class ZoomMenu extends MBoxPanel {
     public void zoomOut() {
         slider.minusStep();
         percentLabel.closeInput();
+    }
+
+    private void onCanvasScroll(ScrollEvent e) {
+        if(e.isControlDown()) {
+            int delta = (int) Math.signum(e.getDeltaY());
+            if(delta != 0) {
+                zoomByScroll(delta);
+            }
+            e.consume();
+        }
+    }
+
+    private void zoomByScroll(int delta) {
+        if(delta > 0) {
+            zoomIn();
+        } else {
+            zoomOut();
+        }
     }
 }

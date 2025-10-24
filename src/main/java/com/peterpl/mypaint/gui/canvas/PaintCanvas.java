@@ -1,5 +1,6 @@
 package com.peterpl.mypaint.gui.canvas;
 
+import com.peterpl.mypaint.*;
 import javafx.scene.layout.*;
 
 public class PaintCanvas extends Pane {
@@ -11,16 +12,12 @@ public class PaintCanvas extends Pane {
     private int width, height, displayWidth, displayHeight;
     private int zoom = DEFAULT_ZOOM;
 
-    public PaintCanvas() {
-        this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-    }
+    final MyPaint myPaint;
 
-    public PaintCanvas(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public PaintCanvas(MyPaint myPaint) {
+        this.myPaint = myPaint;
         setStyle("-fx-background-color: white;");
         setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
-        changeDisplaySize();
     }
 
     private void repaint() {
@@ -32,6 +29,12 @@ public class PaintCanvas extends Pane {
 
     public int getCanvasHeight() {
         return height;
+    }
+
+    public void setSize(int width, int height) {
+        this.width = width;
+        this.height = height;
+        changeDisplaySize();
     }
 
     public int getDisplayWidth() {
@@ -61,6 +64,12 @@ public class PaintCanvas extends Pane {
         setPrefWidth(displayWidth);
         setPrefHeight(displayHeight);
 
+        displayCanvasSize();
+
         repaint();
+    }
+
+    private void displayCanvasSize() {
+        myPaint.canvasSizeLabel.setText(width, height);
     }
 }

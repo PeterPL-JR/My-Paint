@@ -23,6 +23,9 @@ public class MyPaint extends Application {
     private MScrollPanel scrollPanel;
     private ZoomMenu zoomMenu;
 
+    public CanvasSizeLabel canvasSizeLabel;
+    public CursorPositionLabel cursorPositionLabel;
+
     private void initContainer() {
         LanguageManager.init();
         KeyboardManager.init();
@@ -30,6 +33,8 @@ public class MyPaint extends Application {
         initCanvas();
         initFooter();
         initMenu();
+
+        canvas.setSize(PaintCanvas.DEFAULT_WIDTH, PaintCanvas.DEFAULT_HEIGHT);
     }
 
     private void initMenu() {
@@ -63,7 +68,7 @@ public class MyPaint extends Application {
     }
 
     private void initCanvas() {
-        canvas = new PaintCanvas();
+        canvas = new PaintCanvas(this);
 
         scrollPanel = new MScrollPanel(canvas);
         container.setCenter(scrollPanel);
@@ -73,7 +78,10 @@ public class MyPaint extends Application {
         FooterMenu footer = new FooterMenu();
         zoomMenu = new ZoomMenu(scrollPanel);
 
-        footer.add(zoomMenu);
+        canvasSizeLabel = new CanvasSizeLabel();
+        cursorPositionLabel = new CursorPositionLabel();
+
+        footer.add(canvasSizeLabel, cursorPositionLabel, zoomMenu);
         container.setBottom(footer);
     }
 

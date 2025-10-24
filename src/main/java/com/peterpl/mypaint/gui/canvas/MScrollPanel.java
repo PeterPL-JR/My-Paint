@@ -141,5 +141,11 @@ public class MScrollPanel extends ScrollPane {
 
         canvasMouseX = (int) ((x - offsetX) / (canvas.getZoom() / 100.0));
         canvasMouseY = (int) ((y - offsetY) / (canvas.getZoom() / 100.0));
+
+        displayMousePosition();
+    }
+
+    private void displayMousePosition() {
+        canvas.myPaint.cursorPositionLabel.setText(canvasMouseX, canvasMouseY);
     }
 }

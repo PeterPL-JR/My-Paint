@@ -17,6 +17,10 @@ public class IconLabel extends MBoxPanel {
         add(icon, label);
     }
 
+    public IconLabel(String iconPath) {
+        this(iconPath, "");
+    }
+
     public void setText(String text) {
         label.setText(text);
     }

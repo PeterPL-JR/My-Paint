@@ -29,3 +29,7 @@
 .icon-button:hover {
     -fx-background-color: #0096C9ff;
 }
+
+.footer-icon-label {
+    -fx-padding: 0 50 0 0;
+}

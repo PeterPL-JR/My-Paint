@@ -71,7 +71,7 @@ public class MyPaint extends Application {
 
     private void initFooter() {
         FooterMenu footer = new FooterMenu();
-        zoomMenu = new ZoomMenu();
+        zoomMenu = new ZoomMenu(scrollPanel);
 
         footer.add(zoomMenu);
         container.setBottom(footer);

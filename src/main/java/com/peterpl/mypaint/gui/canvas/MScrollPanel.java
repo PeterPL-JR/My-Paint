@@ -58,6 +58,11 @@ public class MScrollPanel extends ScrollPane {
         viewportBoundsProperty().addListener(listener);
     }
 
+    public void setZoom(int zoom) {
+        canvas.setZoom(zoom);
+        resize();
+    }
+
     public int getCanvasMouseX() {
         return canvasMouseX;
     }
@@ -134,7 +139,7 @@ public class MScrollPanel extends ScrollPane {
         double offsetX = canvasPosition.getMinX() - scrollPosition.getMinX();
         double offsetY = canvasPosition.getMinY() - scrollPosition.getMinY();
 
-        canvasMouseX = (int) (x - offsetX);
-        canvasMouseY = (int) (y - offsetY);
+        canvasMouseX = (int) ((x - offsetX) / (canvas.getZoom() / 100.0));
+        canvasMouseY = (int) ((y - offsetY) / (canvas.getZoom() / 100.0));
     }
 }

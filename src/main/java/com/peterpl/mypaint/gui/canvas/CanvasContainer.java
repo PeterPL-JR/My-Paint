@@ -21,8 +21,8 @@ public class CanvasContainer extends StackPane {
         double windowWidth = panel.getWidth();
         double windowHeight = panel.getHeight();
 
-        double canvasWidth = canvas.getWidth();
-        double canvasHeight = canvas.getHeight();
+        double canvasWidth = canvas.getDisplayWidth();
+        double canvasHeight = canvas.getDisplayHeight();
 
         double width = windowWidth > canvasWidth ? windowWidth * 2 : windowWidth + canvasWidth;
         double height = windowHeight > canvasHeight ? windowHeight * 2 : windowHeight + canvasHeight;

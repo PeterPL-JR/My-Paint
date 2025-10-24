@@ -2,6 +2,7 @@ package com.peterpl.mypaint.gui.footer.zoom;
 
 import com.peterpl.mypaint.gui.*;
 import com.peterpl.mypaint.gui.canvas.*;
+import com.peterpl.mypaint.gui.icon.*;
 import javafx.scene.input.*;
 
 public class ZoomMenu extends MBoxPanel {

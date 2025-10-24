@@ -3,9 +3,13 @@
     -fx-faint-focus-color: transparent;
 }
 
+.icon-label,
+.percent {
+    -fx-font-size: 15px;
+}
+
 .percent {
     -fx-padding: 0 10 0 10;
-    -fx-font-size: 15px;
 }
 
 .percent:hover {
